@@ -86,7 +86,58 @@ namespace SPAGame.Controllers
             return Ok(new { GameId = newGame.Id });
         }
 
-       
+        // Validating and processing users guess
+        // updating game status and statistics accordingly
+        // returning feedback to user based on correctness of guess
+
+        [HttpPost("guess/{gameId}")]
+        public IActionResult SubmitUserGuess(Guid gameId, [FromBody] int guess)
+        {
+            var userId = GetUserId();
+            var existingGame = _context.Games.SingleOrDefault(submittedGame => submittedGame.Id == gameId && submittedGame.UserId == userId && !submittedGame.IsCompleted);
+
+            if (existingGame == null)
+            {
+                return NotFound("Sorry, the game was not found");
+            }
+
+            var guessIsCorrect = guess == existingGame.TargetNumber;
+            var message = guessIsCorrect ? "Your guess is correct!" : guess < existingGame.TargetNumber ? "You have guessed too low!" : "You have guessed too high!";
+
+            if (!guessIsCorrect)
+            {
+                existingGame.Guesses.Add(new Guess { Number = guess });
+                _context.SaveChanges();
+            }
+            else
+            {
+                existingGame.IsCompleted = true;
+                _context.SaveChanges();
+
+                var user = _context.Users.SingleOrDefault(user => user.Id == userId);
+                if (user != null)
+                {
+                    user.GamesWon++;
+                    _context.SaveChanges();
+
+                    int userScore = CalculateUserScore(existingGame);
+                    var userScoreRecord = new Score
+                    {
+                        UserId = userId,
+                        GameId = existingGame.Id,
+                        Points = userScore,
+                        CreatedAt = DateTime.UtcNow
+                    };
+
+                    _context.Scores.Add(userScoreRecord);
+                    _context.SaveChanges();
+                }
+            }
+
+            return Ok(new { Correct = guessIsCorrect, IsCompleted = existingGame.IsCompleted, Message = message });
+        }
+
+
 
 }
 }
