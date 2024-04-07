@@ -17,9 +17,7 @@ namespace SPAGame.Models
     {
         public Guid Id { get; set; }
         public int Number { get; set; }
-
         public Guid GameId { get; set; }
-
         public Game Game { get; set; }
     }
 
@@ -35,7 +33,6 @@ namespace SPAGame.Models
         public bool IsCompleted { get; set; }
         public DateTime CreatedAt { get; set; }
         public string UserId { get; set; }
-
         public ApplicationUser User { get; set; }
         public ICollection<Guess> Guesses { get; set; }
         public ICollection<Score> Scores { get; set; }
@@ -48,7 +45,6 @@ namespace SPAGame.Models
         public string UserId { get; set; }
         public DateTime CreatedAt { get; set; }
         public Guid GameId { get; set; }
-
         public ApplicationUser User { get; set; }
         public Game Game { get; set; }
     }
