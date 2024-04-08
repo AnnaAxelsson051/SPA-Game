@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
+// Defining models for user profiles, games, guesses, and scores
+
 namespace SPAGame.Models
 {
     public class ApplicationUser : IdentityUser
