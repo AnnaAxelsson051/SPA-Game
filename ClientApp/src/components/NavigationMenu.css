@@ -1,0 +1,25 @@
+﻿
+
+header {
+    background-color: #e9f7f7;
+    border-radius: 50px;
+    box-shadow: 0 .25rem .75rem rgb(212, 211, 211);
+    
+}
+
+a.navbar-brand {
+    text-align: center;
+    word-break: break-all;
+    font-weight: bold;
+    padding-left:10px;
+}
+
+html {
+    font-size: 12px;
+}
+
+@media (min-width: 770px) {
+    html {
+        font-size: 14px;
+    }
+}
