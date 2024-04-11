@@ -38,7 +38,10 @@ const Profile = () => {
             <h2>User Profile</h2>
             {profile ? (
                 <div>
-                   
+                    <p><strong>User Name:</strong> {profile.userName}</p>
+                    <p><strong>Number of Games Won:</strong> {profile.gamesWon}</p>
+                    <p><strong>Number of Games Played:</strong> {profile.gamesPlayed}</p>
+                    <p><strong>Guess Attempts:</strong> {profile.guessingAttempts}</p>
                 </div>
             ) : (
                 <p>Loading</p>
