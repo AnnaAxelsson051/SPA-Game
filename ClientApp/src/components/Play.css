@@ -1,0 +1,51 @@
+﻿
+
+h2 {
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.startBoxBackGround {
+    background-color: rgb(170, 127, 255);
+}
+
+.gameBox {
+    padding: 1rem;
+    font-size: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userInput {
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.userInputField {
+    background-color: #e2d0e8;
+    color: white;
+}
+
+.sumbitGuessButton {
+    background-color: rgb(170, 127, 255);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    padding: 6px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+}
+
+
