@@ -129,6 +129,33 @@ for future reference */
         }
     };
 
+    /* Sends user guess to server for validation, 
+updating UI with the result and message returned
+Removing the cached game from local storage if the guess is correct */
+
+const submitGuess = async () => {
+    try {
+        const token = await authService.getAccessToken();
+        const response = await fetch(`/api/game/guess/${gameId}`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(guess)
+        });
+        const data = await response.json();
+        setResult(data.correct ? 'Your guess is correct!' : 'Your guess is incorrect :(');
+        setMessage(data.message); 
+
+        if (data.correct) {
+            localStorage.removeItem("game");
+        }
+    } catch (error) {
+        console.error('Error while attempting to submit guess:', error);
+    }
+};
+
 
     return (
         <div>
