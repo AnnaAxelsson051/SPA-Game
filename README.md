@@ -30,11 +30,12 @@ ASP.NET Core API is used to provide REST endpoints for frontend communication ha
 
 The database design follows the EF Code-First approach enabling integration with the ASP.NET Core API backend. It provides an ORM framework for interacting with the database ensuring data integrity and consistency - storing user information, game data, and highscores.
 
-#### Entities
+Entities
 
-Users: Stores user credentials, including username, password hash, and email.
-Games: Records details of each game session, such as game ID, user ID, and game status.
-Highscores: Contains historical and daily highscores for different games, linked to user IDs for tracking performance.
+
+- Users: Stores user credentials, including username, password hash, and email.
+- Highscores: Contains historical and daily highscores for different games, linked to user IDs for tracking performance.
+- Games: Records details of each game session, such as game ID, user ID, and game status.
 
 ### Frontend
 
