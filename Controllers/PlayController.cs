@@ -21,8 +21,8 @@ namespace SPAGame.Controllers
             _context = context;
         }
 
-        // Retrieving the scores of the current player from completed
-        // games returning  scores in descending order based on
+        // Retrieving scores of current player from completed
+        // games returning scores in descending order based on
         // game creation date
 
         [HttpGet("scores")]

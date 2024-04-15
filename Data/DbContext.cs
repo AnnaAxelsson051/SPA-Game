@@ -14,8 +14,6 @@ namespace SPAGame.Data
 
         }
 
-        //Fixad
-
         public DbSet<Score> Scores { get; set; }
         public DbSet<Guess> Guesses { get; set; }
         public DbSet<Game> Games { get; set; }

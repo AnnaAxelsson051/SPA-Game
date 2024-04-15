@@ -25,7 +25,7 @@ namespace SPAGame.Controllers
 
         // Retrieving profile data of the auth user, including 
         // username, user ID, total games played, games won and total
-        // guessing attempts made across all games
+        // guessing attempts made accross all games
 
         [HttpGet]
         public async Task<IActionResult> GetUserProfile()

@@ -7,7 +7,7 @@ using Microsoft.VisualBasic;
 namespace SPAGame.Controllers
 
 /*
-provides important information needed for a secure login process 
+provides information needed for a secure login process 
 
 */
 {

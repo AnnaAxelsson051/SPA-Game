@@ -15,7 +15,7 @@ namespace SPAGame.Controllers
             _context = context;
         }
 
-        // Retrieving highest score achieved by each user
+        // Retrieving highest score achieved by user
 
         [HttpGet]
         public IActionResult GetHighestPoints()
